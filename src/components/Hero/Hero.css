@@ -162,8 +162,9 @@
 }
 
 @media (max-width: 768px) {
+
 	.hero h1 {
-		font-size: 2.5rem;
+		font-size: 1.8rem;
 	}
 
 	.hero p {
@@ -178,5 +179,16 @@
 	.btn {
 		width: 100%;
 		text-align: center;
+		padding: 0.875rem 1.35rem;
+	}
+
+	.mouse {
+		display: none;
+		pointer-events: none;
+	}
+
+	.scroll-indicator {
+		display: none;
+		pointer-events: none;
 	}
 }

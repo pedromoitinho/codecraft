@@ -27,6 +27,7 @@
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 body {
@@ -149,6 +150,10 @@ main {
 }
 
 @media (max-width: 768px) {
+	* {
+		font-size: 85%;
+	}
+
 	.section-header h2 {
 		font-size: 1.9rem;
 	}
