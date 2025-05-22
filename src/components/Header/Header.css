@@ -1,0 +1,170 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	padding: 1rem 0;
+	transition: all 0.3s ease-in-out;
+	background-color: rgba(10, 10, 10, 0.95);
+	backdrop-filter: blur(20px);
+}
+
+.header.scrolled {
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+	padding: 0.8rem 0;
+	backdrop-filter: blur(5px);
+	background-color: rgba(10, 10, 10, 0.95);
+}
+
+.header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.logo a {
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+.logoImg {
+	width: 80px;
+	/* Tamanho fixo em pixels para melhor controle */
+	height: auto;
+	/* Mantém a proporção */
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.nav-list {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-item {
+	margin-left: 2rem;
+}
+
+.nav-item a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 500;
+	transition: color 0.3s;
+	position: relative;
+}
+
+.nav-item a:hover {
+	color: #3498db;
+}
+
+.nav-item a::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 2px;
+	bottom: -5px;
+	left: 0;
+	background-color: #3498db;
+	transition: width 0.3s ease;
+}
+
+.nav-item a:hover::after {
+	width: 100%;
+}
+
+.nav-toggle {
+	display: none;
+	cursor: pointer;
+	z-index: 1001;
+}
+
+.hamburger {
+	width: 24px;
+	height: 18px;
+	position: relative;
+	transform: rotate(0deg);
+	transition: 0.5s ease-in-out;
+}
+
+.hamburger span {
+	display: block;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	background: #fff;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	transform: rotate(0deg);
+	transition: 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+	top: 0;
+}
+
+.hamburger span:nth-child(2) {
+	top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+	top: 16px;
+}
+
+.hamburger.active span:nth-child(1) {
+	top: 8px;
+	transform: rotate(135deg);
+}
+
+.hamburger.active span:nth-child(2) {
+	opacity: 0;
+	left: -60px;
+}
+
+.hamburger.active span:nth-child(3) {
+	top: 8px;
+	transform: rotate(-135deg);
+}
+
+@media (max-width: 768px) {
+	.nav-toggle {
+		display: block;
+	}
+
+	.nav {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 60%;
+		height: 100vh;
+		background-color: rgba(15, 15, 15, 1);
+		flex-direction: column;
+		justify-content: center;
+		transition: right 0.3s ease;
+	}
+
+	.nav.open {
+		right: 0;
+	}
+
+	.nav-list {
+		flex-direction: column;
+		align-items: center;
+		margin-right: 2rem;
+	}
+
+	.nav-item {
+		margin: 1.5rem 0;
+	}
+}
