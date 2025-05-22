@@ -97,10 +97,16 @@
 
 @media (max-width: 768px) {
 	.services {
-		padding: 70px 0;
+		padding: 20px 0;
 	}
 
 	.services-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.service-card {
+		width: 80%;
+		height: 95%;
+		margin-left: 10%;
 	}
 }

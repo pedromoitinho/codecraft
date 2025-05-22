@@ -52,7 +52,7 @@ const Testimonials: React.FC = () => {
 		<section id="testimonials" className="testimonials">
 			<div className="container">
 				<div className="section-header">
-					<h2>O que nossos <span className="highlight">Clientes</span> dizem</h2>
+					<h2>O que nossos <span className="highlight">clientes</span> dizem</h2>
 					<p className="section-subtitle">Depoimentos de quem confia no nosso trabalho</p>
 				</div>
 

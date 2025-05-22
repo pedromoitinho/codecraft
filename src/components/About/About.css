@@ -151,4 +151,20 @@
 	.about-stats {
 		flex-direction: column;
 	}
+
+	.stat-item {
+		padding: 15px;
+	}
+
+	.stat-number {
+		font-size: 1.8rem;
+	}
+
+	.stat-text {
+		font-size: 0.9rem;
+	}
+
+	.about-text>p {
+		font-size: 0.95rem;
+	}
 }
