@@ -27,29 +27,14 @@ const Services: React.FC = () => {
 			icon: "🌐"
 		},
 		{
-			title: "Desenvolvimento Mobile",
-			description: "Aplicativos nativos e híbridos para iOS e Android que conectam sua empresa aos clientes.",
-			icon: "📱"
-		},
-		{
-			title: "Design UX/UI",
-			description: "Interfaces intuitivas e design moderno para proporcionar a melhor experiência aos seus usuários.",
-			icon: "🎨"
-		},
-		{
-			title: "E-commerce",
-			description: "Lojas virtuais personalizadas e otimizadas para converter visitantes em clientes.",
-			icon: "🛒"
-		},
-		{
-			title: "Marketing Digital",
-			description: "Estratégias de marketing para atrair, converter e fidelizar clientes para seu negócio.",
-			icon: "📊"
-		},
-		{
 			title: "Consultoria em TI",
 			description: "Orientação estratégica para implementação de soluções tecnológicas em seu negócio.",
 			icon: "💼"
+		},
+		{
+			title: "Resolução de Bugs",
+			description: "Seu projeto já existente, tem problemas sem solução? Nós resolvemos!",
+			icon: "✅"
 		}
 	];
 

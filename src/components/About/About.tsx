@@ -48,15 +48,15 @@ const About: React.FC = () => {
 
 					<div className="about-stats">
 						<div className="stat-item">
-							<span className="stat-number">50+</span>
+							<span className="stat-number">5+</span>
 							<span className="stat-text">Projetos Entregues</span>
 						</div>
 						<div className="stat-item">
-							<span className="stat-number">30+</span>
+							<span className="stat-number">3+</span>
 							<span className="stat-text">Clientes Satisfeitos</span>
 						</div>
 						<div className="stat-item">
-							<span className="stat-number">5</span>
+							<span className="stat-number">3</span>
 							<span className="stat-text">Anos de Experiência</span>
 						</div>
 					</div>
