@@ -131,4 +131,8 @@
 	.projects-grid {
 		grid-template-columns: 1fr;
 	}
+
+	.project-link {
+		font-size: 0.7rem;
+	}
 }

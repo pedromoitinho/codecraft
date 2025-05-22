@@ -147,4 +147,8 @@
 	.copyright {
 		text-align: center;
 	}
+
+	.footer-column ul li a {
+		font-size: 0.8rem;
+	}
 }
