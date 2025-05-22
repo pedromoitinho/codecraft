@@ -1,11 +1,25 @@
 .services {
 	padding: 100px 0;
-	background-color: #f9f9f9;
+	background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+	position: relative;
+}
+
+.services::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background:
+		radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+		radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.03) 0%, transparent 50%);
+	pointer-events: none;
 }
 
 .services .section-header {
-	text-align: center;
-	margin-bottom: 60px;
+	position: relative;
+	z-index: 1;
 }
 
 .services h2 {
@@ -14,7 +28,10 @@
 }
 
 .services h2 .highlight {
-	color: #3498db;
+	background: linear-gradient(180deg, #3498db, #437ca1);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 }
 
 .section-subtitle {
@@ -33,7 +50,7 @@
 	border-radius: 8px;
 	padding: 40px 30px;
 	text-align: center;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 	transition: all 0.3s ease;
 	position: relative;
 	overflow: hidden;
@@ -42,7 +59,7 @@
 
 .service-card:hover {
 	transform: translateY(-10px);
-	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .service-icon {
@@ -68,7 +85,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(52, 152, 219, 0.95);
+	background: rgba(52, 152, 219, 0.65);
 	display: flex;
 	justify-content: center;
 	align-items: center;

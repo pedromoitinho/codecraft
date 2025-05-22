@@ -1,6 +1,6 @@
 .projects {
 	padding: 100px 0;
-	background-color: #f9f9f9;
+	background-color: #fcfcfc;
 }
 
 .projects .section-header {
@@ -27,13 +27,13 @@
 	background-color: #fff;
 	border-radius: 8px;
 	overflow: hidden;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 	transition: all 0.3s ease;
 }
 
 .project-card:hover {
 	transform: translateY(-10px);
-	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .project-image {

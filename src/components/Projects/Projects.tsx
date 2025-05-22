@@ -34,14 +34,6 @@ const Projects: React.FC = () => {
 			image: "/src/assets/project3.jpg",
 			description: "Interface administrativa para visualização e análise de dados empresariais.",
 			technologies: ["Angular", "TypeScript", "Chart.js"]
-		},
-		{
-			id: 4,
-			title: "Website Institucional",
-			category: "Web Design",
-			image: "/src/assets/project4.jpg",
-			description: "Site responsivo com design moderno para empresa do setor imobiliário.",
-			technologies: ["HTML5", "CSS3", "JavaScript"]
 		}
 	];
 
