@@ -213,3 +213,33 @@
 		font-size: 0.8rem;
 	}
 }
+
+@media (max-height: 450px) {
+	.contact {
+		padding: 70px 0;
+	}
+
+	.form-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.contact-form-container {
+		padding: 30px 20px;
+	}
+
+	.form-group>label {
+		font-size: 0.8rem;
+	}
+
+	.section-header h2 {
+		font-size: 1.3rem;
+	}
+
+	.section-header>p {
+		font-size: 1.1rem;
+	}
+
+	.submit-btn {
+		margin-left: 32.5%;
+	}
+}

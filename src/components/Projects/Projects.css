@@ -136,3 +136,25 @@
 		font-size: 0.7rem;
 	}
 }
+
+@media (max-height: 450px) {
+	.section-header>h2 {
+		font-size: 1.4rem;
+	}
+
+	.section-header>p {
+		font-size: 1rem;
+	}
+
+	.projects {
+		padding: 70px 0;
+	}
+
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.project-link {
+		font-size: 0.7rem;
+	}
+}

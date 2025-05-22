@@ -192,3 +192,35 @@
 		pointer-events: none;
 	}
 }
+
+@media (max-height:450px) {
+	.hero h1 {
+		font-size: 1.5rem;
+	}
+
+	.hero p {
+		font-size: 0.8rem;
+	}
+
+	.hero-cta {
+		flex-direction: row;
+		gap: 0.5rem;
+	}
+
+	.btn {
+		margin-left: 7.5%;
+		width: 40%;
+		text-align: center;
+		padding: 0.875rem 0.5rem;
+	}
+
+	.mouse {
+		display: none;
+		pointer-events: none;
+	}
+
+	.scroll-indicator {
+		display: none;
+		pointer-events: none;
+	}
+}

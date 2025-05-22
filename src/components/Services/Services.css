@@ -114,3 +114,35 @@
 		font-size: 0.8rem;
 	}
 }
+
+@media (max-height: 450px) {
+	.services {
+		padding: 20px 0;
+	}
+
+	.services-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.service-card {
+		width: 80%;
+		height: 95%;
+		margin-left: 10%;
+	}
+
+	.btn-service {
+		font-size: 0.8rem;
+	}
+
+	.section-header>h2 {
+		font-size: 1.4rem;
+	}
+
+	.service-card>h3 {
+		font-size: 1rem;
+	}
+
+	.service-card>p {
+		font-size: 0.8rem;
+	}
+}

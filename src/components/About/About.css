@@ -168,3 +168,47 @@
 		font-size: 0.95rem;
 	}
 }
+
+@media (max-height: 450px) {
+	.section-header h2 {
+		font-size: 1.7rem
+	}
+
+	.section-subtitle {
+		font-size: 0.8rem;
+	}
+
+	.about {
+		padding: 70px 0;
+	}
+
+	.values {
+		flex-direction: column;
+	}
+
+	.about-stats {
+		flex-direction: column;
+	}
+
+	.stat-item {
+		padding: 15px;
+	}
+
+	.stat-number {
+		font-size: 1.8rem;
+	}
+
+	.stat-text {
+		font-size: 0.9rem;
+	}
+
+	.about-text>p {
+		font-size: 0.8rem;
+	}
+
+	.about-text>h3 {
+		font-size: 1.2rem;
+		text-align: center;
+	}
+
+}
