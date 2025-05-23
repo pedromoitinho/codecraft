@@ -177,11 +177,9 @@ const Contact: React.FC = () => {
 										required
 									>
 										<option value="">Selecione uma opção</option>
-										<option value="website">Website</option>
-										<option value="ecommerce">E-commerce</option>
-										<option value="mobile">Aplicativo Mobile</option>
-										<option value="design">Design UI/UX</option>
-										<option value="marketing">Marketing Digital</option>
+										<option value="website">Desenvolvimento Web</option>
+										<option value="ecommerce">Consultoria em TI</option>
+										<option value="mobile">Resolução de Bugs</option>
 										<option value="other">Outro</option>
 									</select>
 								</div>

@@ -1,6 +1,6 @@
 .hero {
 	position: relative;
-	height: calc(100vh - 80px);
+	height: calc(100vh - 75px);
 	min-height: 600px;
 	display: flex;
 	align-items: center;
@@ -8,6 +8,21 @@
 	color: white;
 	overflow: hidden;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url('/src/assets/heroPic.jpg');
+	background-size: cover;
+	background-position: center;
+	opacity: 0.85;
+	z-index: 0;
+	mix-blend-mode: overlay;
 }
 
 .hero::before {
@@ -21,6 +36,7 @@
 		radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.3) 0%, transparent 50%),
 		radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.3) 0%, transparent 50%);
 	pointer-events: none;
+	z-index: 1;
 }
 
 .hero .overlay {
@@ -230,6 +246,10 @@
 @media (max-width: 480px) {
 	.hero {
 		min-height: 450px;
+	}
+
+	.hero::after {
+		background-position: 70%;
 	}
 
 	.hero .container {
