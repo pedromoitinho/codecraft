@@ -1,4 +1,6 @@
 import './Projects.css';
+import vitrais from '../../assets/Untitled.jpg';
+import bixaMor from '../../assets/bixaMor.png';
 
 interface Project {
 	id: number;
@@ -16,7 +18,7 @@ const Projects: React.FC = () => {
 			id: 1,
 			title: "Vitrais consultorias",
 			category: "Web Development",
-			image: "/src/assets/Untitled.jpg",
+			image: vitrais,
 			description: "Empresa de consultoria em vitrais.",
 			technologies: ["React", "Node.js", "MySQL"],
 			link: "https://www.vitaisconsultoria.com/"
@@ -25,7 +27,7 @@ const Projects: React.FC = () => {
 			id: 3,
 			title: "Portifólio pessoal",
 			category: "Web Development",
-			image: "/src/assets/bixaMor.png",
+			image: bixaMor,
 			description: "Portifólio do maior viadão já visto nesse Brasil.",
 			technologies: ["React", "Node.js", "MySQL"],
 			link: "https://pedromoitinho.works/"
