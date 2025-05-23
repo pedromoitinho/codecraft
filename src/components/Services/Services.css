@@ -67,6 +67,11 @@
 	margin-bottom: 20px;
 }
 
+.project-details>h3,
+p {
+	color: white;
+}
+
 .service-card h3 {
 	font-size: 1.4rem;
 	margin-bottom: 15px;
