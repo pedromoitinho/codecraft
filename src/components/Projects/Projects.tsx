@@ -7,33 +7,28 @@ interface Project {
 	image: string;
 	description: string;
 	technologies: string[];
+	link?: string;
 }
 
 const Projects: React.FC = () => {
 	const projects: Project[] = [
 		{
 			id: 1,
-			title: "E-commerce Moderno",
+			title: "Vitrais consultorias",
 			category: "Web Development",
-			image: "/src/assets/project1.jpg",
-			description: "Desenvolvimento de plataforma de e-commerce completa com sistema de pagamentos integrados.",
-			technologies: ["React", "Node.js", "MongoDB"]
-		},
-		{
-			id: 2,
-			title: "Aplicativo de Delivery",
-			category: "Mobile Development",
-			image: "/src/assets/project2.jpg",
-			description: "Aplicativo para iOS e Android para entrega de produtos com rastreamento em tempo real.",
-			technologies: ["React Native", "Firebase", "Google Maps API"]
+			image: "/src/assets/Untitled.jpg",
+			description: "Empresa de consultoria em vitrais.",
+			technologies: ["React", "Node.js", "MySQL"],
+			link: "https://www.vitaisconsultoria.com/"
 		},
 		{
 			id: 3,
-			title: "Dashboard Corporativo",
+			title: "Portifólio pessoal",
 			category: "Web Development",
-			image: "/src/assets/project3.jpg",
-			description: "Interface administrativa para visualização e análise de dados empresariais.",
-			technologies: ["Angular", "TypeScript", "Chart.js"]
+			image: "/src/assets/bixaMor.png",
+			description: "Portifólio do maior viadão já visto nesse Brasil.",
+			technologies: ["React", "Node.js", "MySQL"],
+			link: "https://pedromoitinho.works/"
 		}
 	];
 
@@ -58,7 +53,13 @@ const Projects: React.FC = () => {
 												<span key={index} className="tech-tag">{tech}</span>
 											))}
 										</div>
-										<a href="#contact" className="project-link">Ver mais detalhes</a>
+										{project.link ? (
+											<a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+												Visitar Projeto
+											</a>
+										) : (
+											<a href="#contact" className="project-link">Ver mais detalhes</a>
+										)}
 									</div>
 								</div>
 							</div>

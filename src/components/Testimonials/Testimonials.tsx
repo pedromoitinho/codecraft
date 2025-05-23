@@ -14,11 +14,11 @@ const Testimonials: React.FC = () => {
 	const testimonials: Testimonial[] = [
 		{
 			id: 1,
-			name: "Ana Silva",
+			name: "Janaina Bastos",
 			position: "CEO",
-			company: "TechStart",
+			company: "Vitais Consultoria",
 			image: "/src/assets/client1.jpg",
-			text: "A equipe da CodeCraft é excepcional! Eles transformaram completamente nosso site, tornando-o mais moderno e funcional. Nossa taxa de conversão aumentou significativamente após o lançamento."
+			text: "O motivo do meu contato é para agradecer pelo trabalho na criação do site. Fiquei muito satisfeita com o resultado final. Você conseguiu construir a página de forma limpa, moderna e funcional, exatamente como combinamos. A navegação está intuitiva e a apresentação das informações está clara e organizada."
 		},
 		{
 			id: 2,
