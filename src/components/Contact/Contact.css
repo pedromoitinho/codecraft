@@ -61,25 +61,45 @@
 
 .social-links {
 	display: flex;
-	gap: 15px;
+	gap: 20px;
 	margin-top: 10px;
+	align-items: center;
 }
 
 .social-link {
-	width: 40px;
-	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50%;
-	background-color: #3498db;
-	color: white;
 	text-decoration: none;
 	transition: all 0.3s ease;
 }
 
+.social-link img {
+	object-fit: contain;
+}
+
+/* Tamanhos ajustados para melhor proporção visual */
+.social-link img[alt="Facebook"] {
+	width: 32px;
+	height: 32px;
+}
+
+.social-link img[alt="Instagram"] {
+	width: 38px;
+	height: 38px;
+}
+
+.social-link img[alt="LinkedIn"] {
+	width: 48px;
+	height: 48px;
+}
+
+.social-link img[alt="GitHub"] {
+	width: 32px;
+	height: 32px;
+}
+
 .social-link:hover {
-	background-color: #2980b9;
 	transform: scale(1.1);
 }
 

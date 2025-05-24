@@ -1,5 +1,9 @@
 import { useState, type FormEvent } from 'react';
 import './Contact.css';
+import facebook_logo from '../../assets/facebook_logo.png';
+import instagram_logo from '../../assets/instagram_logo.png';
+import linkedin_logo from '../../assets/linkedin_logo.png';
+import github_logo from '../../assets/github_logo.png';
 
 const Contact: React.FC = () => {
 	const [formData, setFormData] = useState({
@@ -66,7 +70,7 @@ const Contact: React.FC = () => {
 								<i>📍</i>
 							</div>
 							<h4>Endereço</h4>
-							<p>Av. Paulista, 1000, São Paulo - SP</p>
+							<p>R. Boa Vista do Paraíso, 20 - Lagoa Salgada, Feira de Santana - BA, 44082-040</p>
 						</div>
 
 						<div className="contact-card">
@@ -82,21 +86,21 @@ const Contact: React.FC = () => {
 								<i>📞</i>
 							</div>
 							<h4>Telefone</h4>
-							<p>(11) 99999-9999</p>
+							<p>(75) 9842-3212</p>
 						</div>
 
 						<div className="social-links">
 							<a href="#" className="social-link">
-								<i>Facebook</i>
+								<img src={facebook_logo} alt="Facebook" />
 							</a>
 							<a href="#" className="social-link">
-								<i>Instagram</i>
+								<img src={instagram_logo} alt="Instagram" />
 							</a>
 							<a href="#" className="social-link">
-								<i>LinkedIn</i>
+								<img src={linkedin_logo} alt="LinkedIn" />
 							</a>
 							<a href="#" className="social-link">
-								<i>GitHub</i>
+								<img src={github_logo} alt="GitHub" />
 							</a>
 						</div>
 					</div>

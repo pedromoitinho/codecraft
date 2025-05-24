@@ -1,6 +1,6 @@
 import './Projects.css';
-import vitrais from '../../assets/Untitled.jpg';
-import bixaMor from '../../assets/bixaMor.png';
+import site_vitais from '../../assets/sitevitais.png';
+import site_moitinho from '../../assets/sitemoitinho.png';
 
 interface Project {
 	id: number;
@@ -16,19 +16,19 @@ const Projects: React.FC = () => {
 	const projects: Project[] = [
 		{
 			id: 1,
-			title: "Vitrais consultorias",
+			title: "Vitais Consultorias",
 			category: "Web Development",
-			image: vitrais,
-			description: "Empresa de consultoria em vitrais.",
+			image: site_vitais,
+			description: "Atividades de consultoria em gestão empresarial.",
 			technologies: ["React", "Node.js", "MySQL"],
 			link: "https://www.vitaisconsultoria.com/"
 		},
 		{
 			id: 3,
-			title: "Portifólio pessoal",
+			title: "Portifólio Pedro Moitinho",
 			category: "Web Development",
-			image: bixaMor,
-			description: "Portifólio do maior viadão já visto nesse Brasil.",
+			image: site_moitinho,
+			description: "Saiba mais sobre nosso Engenheiro de Software.", 
 			technologies: ["React", "Node.js", "MySQL"],
 			link: "https://pedromoitinho.works/"
 		}

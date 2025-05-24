@@ -1,5 +1,6 @@
 import './Testimonials.css';
 import { useState } from 'react';
+import janaina_foto from '../../assets/janaina.jpg';
 
 interface Testimonial {
 	id: number;
@@ -17,7 +18,7 @@ const Testimonials: React.FC = () => {
 			name: "Janaina Bastos",
 			position: "CEO",
 			company: "Vitais Consultoria",
-			image: "/src/assets/client1.jpg",
+			image: janaina_foto,
 			text: "O motivo do meu contato é para agradecer pelo trabalho na criação do site. Fiquei muito satisfeita com o resultado final. Você conseguiu construir a página de forma limpa, moderna e funcional, exatamente como combinamos. A navegação está intuitiva e a apresentação das informações está clara e organizada."
 		},
 		{

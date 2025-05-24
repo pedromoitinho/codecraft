@@ -37,8 +37,8 @@ const Footer: React.FC = () => {
 							<h4>Contato</h4>
 							<ul>
 								<li>contato@codecraft.com.br</li>
-								<li>(11) 99999-9999</li>
-								<li>Av. Paulista, 1000, São Paulo - SP</li>
+								<li>(75) 9842-3212</li>
+								<li>R. Boa Vista do Paraíso, 20 - Lagoa Salgada, Feira de Santana - BA, 44082-040</li>
 							</ul>
 						</div>
 					</div>
