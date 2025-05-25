@@ -180,7 +180,7 @@ const Contact: React.FC = () => {
 										className="btn btn-whatsapp"
 										onClick={() => {
 											// Recria a mensagem e URL do WhatsApp
-											const phoneNumber = "5575998423212";
+											const phoneNumber = "5575998649199";
 											let message = `*Solicitação de Orçamento - CodeCraft*\n\n`;
 											message += `*Nome/Empresa:* ${formData.name}\n`;
 											message += `*E-mail:* ${formData.email}\n`;
