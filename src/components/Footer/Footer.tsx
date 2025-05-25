@@ -1,4 +1,5 @@
 import './Footer.css';
+import instagram_logo from '../../assets/instagram_logo.png';
 
 const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
@@ -9,7 +10,6 @@ const Footer: React.FC = () => {
 				<div className="footer-content">
 					<div className="footer-logo">
 						<h3>Code<span className="highlight">Craft</span></h3>
-						<p>Transformando ideias em experiências digitais excepcionais.</p>
 					</div>
 
 					<div className="footer-links">
@@ -27,16 +27,15 @@ const Footer: React.FC = () => {
 							<h4>Serviços</h4>
 							<ul>
 								<li><a href="#services">Desenvolvimento Web</a></li>
-								<li><a href="#services">Desenvolvimento Mobile</a></li>
-								<li><a href="#services">Design UX/UI</a></li>
-								<li><a href="#services">E-commerce</a></li>
+								<li><a href="#services">Consultoria em TI</a></li>
+								<li><a href="#services">Resolução de Bugs</a></li>
 							</ul>
 						</div>
 
 						<div className="footer-column">
 							<h4>Contato</h4>
 							<ul>
-								<li>contato@codecraft.com.br</li>
+								<li>codecraftfsa@gmail.com</li>
 								<li>(75) 9842-3212</li>
 								<li>R. Boa Vista do Paraíso, 20 - Lagoa Salgada, Feira de Santana - BA, 44082-040</li>
 							</ul>
@@ -50,10 +49,7 @@ const Footer: React.FC = () => {
 					</div>
 
 					<div className="footer-social">
-						<a href="#" className="social-icon">FB</a>
-						<a href="#" className="social-icon">IG</a>
-						<a href="#" className="social-icon">LI</a>
-						<a href="#" className="social-icon">GH</a>
+						<a href="https://www.instagram.com/cc_codecraft/" className="social-icon"><img src={instagram_logo} /></a>
 					</div>
 				</div>
 			</div>

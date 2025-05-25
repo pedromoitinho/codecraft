@@ -1,9 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import './Contact.css';
-import facebook_logo from '../../assets/facebook_logo.png';
 import instagram_logo from '../../assets/instagram_logo.png';
-import linkedin_logo from '../../assets/linkedin_logo.png';
-import github_logo from '../../assets/github_logo.png';
 
 const Contact: React.FC = () => {
 	const [formData, setFormData] = useState({
@@ -12,19 +9,51 @@ const Contact: React.FC = () => {
 		phone: '',
 		company: '',
 		projectType: '',
-		message: ''
+		message: '',
+		description: '',
+		pages: '',
+		references: '',
+		extra: '',
+		objective: '',
+		logo: '',
+		hosting: '',
+		features: [] as string[]
 	});
 
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [submitSuccess, setSubmitSuccess] = useState(false);
 	const [submitError, setSubmitError] = useState('');
+	const [currentStep, setCurrentStep] = useState(1);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-		const { name, value } = e.target;
-		setFormData({
-			...formData,
-			[name]: value
-		});
+		const { name, value, type, checked } = e.target as HTMLInputElement;
+
+		// Tratamento especial para checkboxes (features)
+		if (type === 'checkbox') {
+			const updatedFeatures = [...(Array.isArray(formData.features) ? formData.features : [])];
+
+			if (checked) {
+				// Adicionar à lista se estiver marcado
+				updatedFeatures.push(value);
+			} else {
+				// Remover da lista se estiver desmarcado
+				const index = updatedFeatures.indexOf(value);
+				if (index > -1) {
+					updatedFeatures.splice(index, 1);
+				}
+			}
+
+			setFormData({
+				...formData,
+				features: updatedFeatures
+			});
+		} else {
+			// Para outros tipos de campos
+			setFormData({
+				...formData,
+				[name]: value
+			});
+		}
 	};
 
 	const handleSubmit = async (e: FormEvent) => {
@@ -34,10 +63,39 @@ const Contact: React.FC = () => {
 		setSubmitError('');
 
 		try {
-			// Simulando uma chamada de API
-			await new Promise(resolve => setTimeout(resolve, 1500));
+			// Formatando os dados do formulário para envio via WhatsApp
+			const phoneNumber = "5575998649199"; // Substitua pelo número de WhatsApp correto (formato: código do país + DDD + número)
 
-			console.log('Dados do formulário enviados:', formData);
+			// Criando a mensagem formatada
+			let message = `*Solicitação de Orçamento - CodeCraft*\n\n`;
+			message += `*Nome/Empresa:* ${formData.name}\n`;
+			message += `*E-mail:* ${formData.email}\n`;
+			message += `*WhatsApp:* ${formData.phone}\n\n`;
+
+			message += `*Objetivo do site:* ${formData.objective}\n`;
+			message += `*Descrição da empresa:* ${formData.description}\n`;
+			message += `*Possui logo e identidade visual?* ${formData.logo}\n\n`;
+
+			message += `*Possui domínio e hospedagem?* ${formData.hosting}\n`;
+			message += `*Páginas desejadas:* ${formData.pages}\n`;
+			message += `*Referências:* ${formData.references}\n\n`;
+
+			message += `*Recursos desejados:* ${Array.isArray(formData.features) ? formData.features.join(", ") : formData.features}\n`;
+			message += `*Informações adicionais:* ${formData.extra}`;
+
+			// Codificando a mensagem para URL
+			const encodedMessage = encodeURIComponent(message);
+
+			// Criando a URL do WhatsApp
+			const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+			// Simulando um pequeno atraso para melhor experiência do usuário
+			await new Promise(resolve => setTimeout(resolve, 1000));
+
+			// Redirecionando para o WhatsApp
+			window.open(whatsappURL, '_blank');
+
+			console.log('Dados do formulário enviados para WhatsApp:', formData);
 			setSubmitSuccess(true);
 			setFormData({
 				name: '',
@@ -45,14 +103,30 @@ const Contact: React.FC = () => {
 				phone: '',
 				company: '',
 				projectType: '',
-				message: ''
+				message: '',
+				description: '',
+				pages: '',
+				references: '',
+				extra: '',
+				objective: '',
+				logo: '',
+				hosting: '',
+				features: []
 			});
 		} catch (error) {
 			console.error('Erro ao enviar formulário:', error);
-			setSubmitError('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+			setSubmitError('Ocorreu um erro ao processar o formulário. Por favor, tente novamente.');
 		} finally {
 			setIsSubmitting(false);
 		}
+	};
+
+	const nextStep = () => {
+		if (currentStep < 4) setCurrentStep(currentStep + 1);
+	};
+
+	const prevStep = () => {
+		if (currentStep > 1) setCurrentStep(currentStep - 1);
 	};
 
 	return (
@@ -78,7 +152,7 @@ const Contact: React.FC = () => {
 								<i>📧</i>
 							</div>
 							<h4>E-mail</h4>
-							<p>contato@codecraft.com.br</p>
+							<p>codecraftfsa@gmail.com</p>
 						</div>
 
 						<div className="contact-card">
@@ -91,16 +165,7 @@ const Contact: React.FC = () => {
 
 						<div className="social-links">
 							<a href="#" className="social-link">
-								<img src={facebook_logo} alt="Facebook" />
-							</a>
-							<a href="#" className="social-link">
 								<img src={instagram_logo} alt="Instagram" />
-							</a>
-							<a href="#" className="social-link">
-								<img src={linkedin_logo} alt="LinkedIn" />
-							</a>
-							<a href="#" className="social-link">
-								<img src={github_logo} alt="GitHub" />
 							</a>
 						</div>
 					</div>
@@ -109,107 +174,208 @@ const Contact: React.FC = () => {
 						{submitSuccess ? (
 							<div className="success-message">
 								<h3>Obrigado pelo contato!</h3>
-								<p>Recebemos sua mensagem e entraremos em contato em breve.</p>
-								<button
-									className="btn btn-primary"
-									onClick={() => setSubmitSuccess(false)}
-								>
-									Enviar Outra Mensagem
-								</button>
+								<p>Seus dados foram preparados e enviados para o WhatsApp. Se o redirecionamento não ocorrer automaticamente, clique no botão abaixo.</p>
+								<div className="success-buttons">
+									<button
+										className="btn btn-whatsapp"
+										onClick={() => {
+											// Recria a mensagem e URL do WhatsApp
+											const phoneNumber = "5575998423212";
+											let message = `*Solicitação de Orçamento - CodeCraft*\n\n`;
+											message += `*Nome/Empresa:* ${formData.name}\n`;
+											message += `*E-mail:* ${formData.email}\n`;
+											message += `*WhatsApp:* ${formData.phone}\n`;
+											// Outros campos...
+											const encodedMessage = encodeURIComponent(message);
+											const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+											window.open(whatsappURL, '_blank');
+										}}
+									>
+										Abrir WhatsApp
+									</button>
+									<button
+										className="btn btn-primary"
+										onClick={() => setSubmitSuccess(false)}
+									>
+										Enviar Outra Mensagem
+									</button>
+								</div>
 							</div>
 						) : (
 							<form className="contact-form" onSubmit={handleSubmit}>
-								<div className="form-grid">
-									<div className="form-group">
-										<label htmlFor="name">Nome Completo*</label>
-										<input
-											type="text"
-											id="name"
-											name="name"
-											value={formData.name}
-											onChange={handleChange}
-											required
-											placeholder="Seu nome"
-										/>
-									</div>
-
-									<div className="form-group">
-										<label htmlFor="email">E-mail*</label>
-										<input
-											type="email"
-											id="email"
-											name="email"
-											value={formData.email}
-											onChange={handleChange}
-											required
-											placeholder="Seu e-mail"
-										/>
-									</div>
-
-									<div className="form-group">
-										<label htmlFor="phone">Telefone</label>
-										<input
-											type="tel"
-											id="phone"
-											name="phone"
-											value={formData.phone}
-											onChange={handleChange}
-											placeholder="(99) 99999-9999"
-										/>
-									</div>
-
-									<div className="form-group">
-										<label htmlFor="company">Empresa</label>
-										<input
-											type="text"
-											id="company"
-											name="company"
-											value={formData.company}
-											onChange={handleChange}
-											placeholder="Nome da sua empresa"
-										/>
-									</div>
+								<div className="form-steps">
+									{[1, 2, 3, 4].map((step) => (
+										<div
+											key={step}
+											className={`step-indicator ${currentStep === step ? 'active' : ''}`}
+										>
+											{step}
+										</div>
+									))}
 								</div>
 
-								<div className="form-group">
-									<label htmlFor="projectType">Tipo de Projeto*</label>
-									<select
-										id="projectType"
-										name="projectType"
-										value={formData.projectType}
-										onChange={handleChange}
-										required
-									>
-										<option value="">Selecione uma opção</option>
-										<option value="website">Desenvolvimento Web</option>
-										<option value="ecommerce">Consultoria em TI</option>
-										<option value="mobile">Resolução de Bugs</option>
-										<option value="other">Outro</option>
-									</select>
-								</div>
+								{currentStep === 1 && (
+									<div>
+										<div className="form-group">
+											<label htmlFor="name">Nome da empresa*</label>
+											<input
+												type="text"
+												id="name"
+												name="name"
+												value={formData.name}
+												onChange={handleChange}
+												required
+												placeholder="Seu nome ou nome da empresa"
+											/>
+										</div>
 
-								<div className="form-group">
-									<label htmlFor="message">Mensagem*</label>
-									<textarea
-										id="message"
-										name="message"
-										value={formData.message}
-										onChange={handleChange}
-										required
-										rows={4}
-										placeholder="Descreva seu projeto ou necessidade"
-									></textarea>
-								</div>
+										<div className="form-group">
+											<label htmlFor="email">E-mail para contato*</label>
+											<input
+												type="email"
+												id="email"
+												name="email"
+												value={formData.email}
+												onChange={handleChange}
+												required
+												placeholder="Seu e-mail"
+											/>
+										</div>
+
+										<div className="form-group">
+											<label htmlFor="phone">WhatsApp*</label>
+											<input
+												type="tel"
+												id="phone"
+												name="phone"
+												value={formData.phone}
+												onChange={handleChange}
+												required
+												placeholder="(99) 99999-9999"
+											/>
+										</div>
+									</div>
+								)}
+
+								{currentStep === 2 && (
+									<div>
+										<div className="form-group">
+											<label htmlFor="objective">Qual o objetivo principal do site?*</label>
+											<div>
+												<label><input type="radio" name="objective" value="Apresentar a empresa" onChange={handleChange} required /> Apresentar a empresa</label>
+												<label><input type="radio" name="objective" value="Vender produtos/serviços" onChange={handleChange} required /> Vender produtos/serviços</label>
+												<label><input type="radio" name="objective" value="Portfólio" onChange={handleChange} required /> Portfólio</label>
+												<label><input type="radio" name="objective" value="Outro" onChange={handleChange} required /> Outro</label>
+											</div>
+										</div>
+
+										<div className="form-group">
+											<label htmlFor="description">Descreva brevemente o que sua empresa faz*</label>
+											<textarea
+												id="description"
+												name="description"
+												value={formData.description}
+												onChange={handleChange}
+												required
+												rows={4}
+												placeholder="Setor, tipo de serviço que vende..."
+											></textarea>
+										</div>
+
+										<div className="form-group">
+											<label>Já possui logo e identidade visual?*</label>
+											<div>
+												<label><input type="radio" name="logo" value="Sim" onChange={handleChange} required /> Sim</label>
+												<label><input type="radio" name="logo" value="Não" onChange={handleChange} required /> Não</label>
+												<label><input type="radio" name="logo" value="Em desenvolvimento" onChange={handleChange} required /> Em desenvolvimento</label>
+											</div>
+										</div>
+									</div>
+								)}
+
+								{currentStep === 3 && (
+									<div>
+										<div className="form-group">
+											<label>Já possui domínio e hospedagem?*</label>
+											<div>
+												<label><input type="radio" name="hosting" value="Sim" onChange={handleChange} required /> Sim</label>
+												<label><input type="radio" name="hosting" value="Não" onChange={handleChange} required /> Não</label>
+												<label><input type="radio" name="hosting" value="Preciso de ajuda com isso" onChange={handleChange} required /> Preciso de ajuda com isso</label>
+											</div>
+										</div>
+
+										<div className="form-group">
+											<label htmlFor="pages">Quais páginas você deseja ter no site?*</label>
+											<textarea
+												id="pages"
+												name="pages"
+												value={formData.pages}
+												onChange={handleChange}
+												required
+												rows={3}
+												placeholder="Ex: Home, Sobre, Serviços, Contato"
+											></textarea>
+										</div>
+
+										<div className="form-group">
+											<label htmlFor="references">Tem alguma referência de site que gosta?*</label>
+											<textarea
+												id="references"
+												name="references"
+												value={formData.references}
+												onChange={handleChange}
+												required
+												rows={3}
+												placeholder="Link ou nome do site"
+											></textarea>
+										</div>
+									</div>
+								)}
+
+								{currentStep === 4 && (
+									<div>
+										<div className="form-group">
+											<label>Deseja que seu site tenha:*</label>
+											<div>
+												<label><input type="checkbox" name="features" value="Formulário de contato" onChange={handleChange} /> Formulário de contato</label>
+												<label><input type="checkbox" name="features" value="Integração com redes sociais" onChange={handleChange} /> Integração com redes sociais</label>
+												<label><input type="checkbox" name="features" value="WhatsApp direto no site" onChange={handleChange} /> WhatsApp direto no site</label>
+												<label><input type="checkbox" name="features" value="Blog" onChange={handleChange} /> Blog</label>
+												<label><input type="checkbox" name="features" value="Loja virtual (e-commerce)" onChange={handleChange} /> Loja virtual (e-commerce)</label>
+												<label><input type="checkbox" name="features" value="Outros" onChange={handleChange} /> Outros</label>
+											</div>
+										</div>
+
+										<div className="form-group">
+											<label htmlFor="extra">Alguma informação extra ou observação?*</label>
+											<textarea
+												id="extra"
+												name="extra"
+												value={formData.extra}
+												onChange={handleChange}
+												required
+												rows={4}
+												placeholder="Adicione informações adicionais"
+											></textarea>
+										</div>
+									</div>
+								)}
 
 								{submitError && <div className="error-message">{submitError}</div>}
 
-								<button
-									type="submit"
-									className="btn btn-primary submit-btn"
-									disabled={isSubmitting}
-								>
-									{isSubmitting ? 'Enviando...' : 'Solicitar Orçamento'}
-								</button>
+								<div className="form-navigation">
+									{currentStep > 1 && <button type="button" onClick={prevStep}>Anterior</button>}
+									{currentStep < 4 && <button type="button" onClick={nextStep}>Próximo</button>}
+									{currentStep === 4 && (
+										<button
+											type="submit"
+											className="btn btn-primary submit-btn"
+											disabled={isSubmitting}
+										>
+											{isSubmitting ? 'Enviando...' : 'Solicitar Orçamento'}
+										</button>
+									)}
+								</div>
 							</form>
 						)}
 					</div>

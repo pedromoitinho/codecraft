@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 						<li className="nav-item"><a href="#services" onClick={() => setIsMenuOpen(false)}>Serviços</a></li>
 						<li className="nav-item"><a href="#projects" onClick={() => setIsMenuOpen(false)}>Projetos</a></li>
 						<li className="nav-item"><a href="#testimonials" onClick={() => setIsMenuOpen(false)}>Depoimentos</a></li>
-						<li className="nav-item"><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contato</a></li>
+						<li className="nav-item"><a href="#contact" onClick={() => setIsMenuOpen(false)}>Orçamento</a></li>
 					</ul>
 				</nav>
 

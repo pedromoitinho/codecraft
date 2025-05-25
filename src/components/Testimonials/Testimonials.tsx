@@ -21,22 +21,6 @@ const Testimonials: React.FC = () => {
 			image: janaina_foto,
 			text: "O motivo do meu contato é para agradecer pelo trabalho na criação do site. Fiquei muito satisfeita com o resultado final. Você conseguiu construir a página de forma limpa, moderna e funcional, exatamente como combinamos. A navegação está intuitiva e a apresentação das informações está clara e organizada."
 		},
-		{
-			id: 2,
-			name: "Carlos Mendes",
-			position: "Diretor de Marketing",
-			company: "Inovativa Digital",
-			image: "/src/assets/client2.jpg",
-			text: "Trabalhamos com a CodeCraft em vários projetos e eles sempre entregam resultados excepcionais. A comunicação é clara e eles são muito receptivos a feedbacks e ajustes durante o processo."
-		},
-		{
-			id: 3,
-			name: "Mariana Costa",
-			position: "Proprietária",
-			company: "Costa Boutique",
-			image: "/src/assets/client3.jpg",
-			text: "Minha loja virtual desenvolvida pela CodeCraft superou todas as expectativas. O design é lindo e a experiência de compra é intuitiva, meus clientes adoraram!"
-		}
 	];
 
 	const [activeIndex, setActiveIndex] = useState(0);
