@@ -428,6 +428,7 @@ button[type="submit"].submit-btn:disabled {
 @media (max-width: 480px) {
 	.contact-form-container {
 		padding: 20px 15px;
+		min-height: 600px;
 	}
 
 	.form-steps {
