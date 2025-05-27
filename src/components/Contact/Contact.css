@@ -109,31 +109,129 @@
 	padding: 40px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 	max-width: 800px;
-	min-height: 550px;
+	min-height: 700px;
 	height: auto;
 	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	position: relative;
 }
 
 .contact-form {
 	display: flex;
 	flex-direction: column;
-	gap: 25px;
 	height: 100%;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.form-navigation {
+	position: absolute;
+	bottom: 40px;
+	left: 40px;
+	right: 40px;
+	display: flex;
 	justify-content: space-between;
+	gap: 10px;
+	align-items: center;
+}
+
+/* Estilo base para TODOS os botões */
+.form-navigation button,
+.form-navigation .submit-btn,
+button[type="submit"].submit-btn {
+	all: unset;
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #3498db;
+	color: #fff;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 6px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	width: 110px !important;
+	height: 36px !important;
+	text-align: center;
+	flex-shrink: 0;
+	flex-grow: 0;
+}
+
+/* Estilo específico para o botão de submit */
+button[type="submit"].submit-btn {
+	width: 140px !important;
+	height: 42px !important;
+	padding: 12px 20px;
+	background-color: #2980b9;
+	margin-bottom: -3px; /* Ajuste fino para centralizar com o botão Anterior */
+}
+
+/* Hover state */
+.form-navigation button:hover,
+.form-navigation .submit-btn:hover,
+button[type="submit"].submit-btn:hover {
+	background-color: #217dbb;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Disabled state */
+.form-navigation button:disabled,
+.form-navigation .submit-btn:disabled,
+button[type="submit"].submit-btn:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+	transform: none;
+	box-shadow: none;
+}
+
+/* Garante que o botão submit não tenha estilos adicionais */
+.submit-btn {
+	margin: 0 !important;
+	padding: 8px 16px !important;
+	width: 110px !important;
+	height: 36px !important;
+}
+
+.form-content {
+	flex: 1;
+}
+
+.form-steps {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+.form-content::-webkit-scrollbar {
+	width: 8px;
+}
+
+.form-content::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+
+.form-content::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 4px;
+}
+
+.form-content::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
 
 .form-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 20px;
-}
-
-.form-group {
-	display: flex;
-	flex-direction: column;
 }
 
 .form-group label {
@@ -171,28 +269,6 @@
 	color: #e74c3c;
 	font-size: 0.9rem;
 	margin-top: -10px;
-}
-
-.submit-btn {
-	background-color: #3498db;
-	color: white;
-	border: none;
-	padding: 12px 20px;
-	font-size: 1rem;
-	font-weight: 500;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	margin-top: 10px;
-}
-
-.submit-btn:hover {
-	background-color: #2980b9;
-}
-
-.submit-btn:disabled {
-	background-color: #95a5a6;
-	cursor: not-allowed;
 }
 
 .success-message {
@@ -250,12 +326,6 @@
 }
 
 /* Form step indicator */
-.form-steps {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 30px;
-}
-
 .step-indicator {
 	width: 30px;
 	height: 30px;
@@ -295,41 +365,6 @@
 	margin-bottom: 0;
 }
 
-/* Form navigation styling */
-.form-navigation {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 30px;
-}
-
-.form-navigation button {
-	background-color: #3498db;
-	color: #fff;
-	border: none;
-	padding: 12px 25px;
-	border-radius: 6px;
-	font-size: 1rem;
-	font-weight: 500;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	margin: 0;
-	min-width: 120px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.form-navigation button:hover {
-	background-color: #217dbb;
-	transform: translateY(-2px);
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.form-navigation button:disabled {
-	background-color: #ccc;
-	cursor: not-allowed;
-	transform: none;
-	box-shadow: none;
-}
-
 @media (max-width: 992px) {
 	.contact-content {
 		grid-template-columns: 1fr;
@@ -357,7 +392,6 @@
 
 	.contact-form-container {
 		padding: 30px 20px;
-		border-radius: 15px;
 	}
 
 	.form-steps {
@@ -374,16 +408,26 @@
 		font-size: 0.95rem;
 	}
 
-	.form-navigation button {
-		padding: 10px 15px;
-		font-size: 0.8rem;
-		min-width: 80px;
+	.form-navigation {
+		bottom: 30px;
+		left: 20px;
+		right: 20px;
+		gap: 15px;
+	}
+
+	.form-navigation button,
+	.form-navigation .submit-btn,
+	button[type="submit"].submit-btn {
+		width: 100px !important;
+		height: 34px !important;
+		font-size: 0.85rem;
+		padding: 6px 12px !important;
 	}
 }
 
 @media (max-width: 480px) {
 	.contact-form-container {
-		padding: 25px 15px;
+		padding: 20px 15px;
 	}
 
 	.form-steps {
@@ -405,4 +449,19 @@
 		font-size: 2rem;
 	}
 
+	.form-navigation {
+		bottom: 20px;
+		left: 15px;
+		right: 15px;
+		gap: 10px;
+	}
+
+	.form-navigation button,
+	.form-navigation .submit-btn,
+	button[type="submit"].submit-btn {
+		width: 90px !important;
+		height: 32px !important;
+		font-size: 0.8rem;
+		padding: 6px 10px !important;
+	}
 }

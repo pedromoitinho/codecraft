@@ -164,7 +164,7 @@ const Contact: React.FC = () => {
 						</div>
 
 						<div className="social-links">
-							<a href="#" className="social-link">
+							<a href="https://www.instagram.com/cc_codecraft/" className="social-link">
 								<img src={instagram_logo} alt="Instagram" />
 							</a>
 						</div>
@@ -225,7 +225,7 @@ const Contact: React.FC = () => {
 												value={formData.name}
 												onChange={handleChange}
 												required
-												placeholder="Seu nome ou nome da empresa"
+												placeholder="Seu nome ou da empresa"
 											/>
 										</div>
 
@@ -369,7 +369,7 @@ const Contact: React.FC = () => {
 									{currentStep === 4 && (
 										<button
 											type="submit"
-											className="btn btn-primary submit-btn"
+											className="submit-btn"
 											disabled={isSubmitting}
 										>
 											{isSubmitting ? 'Enviando...' : 'Solicitar Orçamento'}
