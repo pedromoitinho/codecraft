@@ -152,7 +152,7 @@ export const generateStructuredData = (type: 'Organization' | 'WebSite' | 'Servi
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Serviços de Desenvolvimento Web",
-          "itemListElement": SEO_CONFIG.business.services.map((service, index) => ({
+          "itemListElement": SEO_CONFIG.business.services.map((service) => ({
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
