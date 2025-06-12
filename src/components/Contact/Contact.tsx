@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
 
 		try {
 			// Formatando os dados do formulário para envio via WhatsApp
-			const phoneNumber = "5575998649199"; // Substitua pelo número de WhatsApp correto (formato: código do país + DDD + número)
+			const phoneNumber = "557597079930"; // Substitua pelo número de WhatsApp correto (formato: código do país + DDD + número)
 
 			// Criando a mensagem formatada
 			let message = `*Solicitação de Orçamento - CodeCraft*\n\n`;
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
 								<i>📞</i>
 							</div>
 							<h4>Telefone</h4>
-							<p>(75) 9842-3212</p>
+							<p>(75) 9707-9930</p>
 						</div>
 
 						<div className="social-links">
@@ -180,7 +180,7 @@ const Contact: React.FC = () => {
 										className="btn btn-whatsapp"
 										onClick={() => {
 											// Recria a mensagem e URL do WhatsApp
-											const phoneNumber = "5575998649199";
+											const phoneNumber = "557597079930";
 											let message = `*Solicitação de Orçamento - CodeCraft*\n\n`;
 											message += `*Nome/Empresa:* ${formData.name}\n`;
 											message += `*E-mail:* ${formData.email}\n`;
