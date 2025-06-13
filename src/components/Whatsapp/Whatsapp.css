@@ -1,0 +1,105 @@
+.whatsappLogo {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 99;
+	width: auto;
+	user-select: none;
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+	/* Puts text on left side */
+}
+
+.whatsappText {
+	background-color: #fff;
+	color: #333;
+	font-weight: 500;
+	padding: 8px 12px;
+	border-radius: 20px;
+	margin-right: 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+	transform: translateX(15px);
+	transition: all 0.3s ease;
+	pointer-events: none;
+	/* So it doesn't interfere with hovering */
+	white-space: nowrap;
+	/* Prevent text wrapping */
+}
+
+.whatsappLogo a:hover~.whatsappText {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.whatsappLogo a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 60px;
+	background-color: #192d41;
+	border-radius: 100%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	transition: all 0.3s ease;
+}
+
+.whatsappLogo a:hover {
+	transform: scale(1.1);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.whatsappLogo svg {
+	width: 35px;
+	height: 35px;
+	fill: white;
+}
+
+@media (max-width: 600px) {
+	.whatsappText {
+		display: none;
+		/* Completely hide the text */
+	}
+
+	.whatsappLogo a:hover {
+		transform: none;
+		/* Disable hover scaling */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+		/* Keep default shadow */
+	}
+
+	.whatsappLogo a {
+		width: 50px;
+		height: 50px;
+	}
+
+	.whatsappLogo svg {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+@media (max-height: 500px) {
+	.whatsappText {
+		display: none;
+		/* Completely hide the text */
+	}
+
+	.whatsappLogo a:hover {
+		transform: none;
+		/* Disable hover scaling */
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+		/* Keep default shadow */
+	}
+
+	.whatsappLogo a {
+		width: 50px;
+		height: 50px;
+	}
+
+	.whatsappLogo svg {
+		width: 30px;
+		height: 30px;
+	}
+}

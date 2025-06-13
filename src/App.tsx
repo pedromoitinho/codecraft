@@ -8,6 +8,7 @@ import Projects from './components/Projects/Projects';
 import { SEO } from './components/SEO';
 import Services from './components/Services/Services';
 import Testimonials from './components/Testimonials/Testimonials';
+import Whatsapp from "./components/Whatsapp/Whatsapp";
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 				<Projects />
 				<Testimonials />
 				<Contact />
+				<Whatsapp />
 			</main>
 			<Footer />
 		</div>
