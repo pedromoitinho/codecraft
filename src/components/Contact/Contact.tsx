@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import './Contact.css';
 import instagram_logo from '../../assets/instagram_logo.png';
+import { sendAnalyticsEvent } from '../../utils/analytics';
 
 const Contact: React.FC = () => {
 	const [formData, setFormData] = useState({
@@ -92,8 +93,9 @@ const Contact: React.FC = () => {
 			// Simulando um pequeno atraso para melhor experiência do usuário
 			await new Promise(resolve => setTimeout(resolve, 1000));
 
-			// Redirecionando para o WhatsApp
-			window.open(whatsappURL, '_blank');
+                        // Redirecionando para o WhatsApp
+                        window.open(whatsappURL, '_blank');
+                        sendAnalyticsEvent('submit_form', 'contact', 'budget_form');
 
 			console.log('Dados do formulário enviados para WhatsApp:', formData);
 			setSubmitSuccess(true);
@@ -187,8 +189,9 @@ const Contact: React.FC = () => {
 											message += `*WhatsApp:* ${formData.phone}\n`;
 											// Outros campos...
 											const encodedMessage = encodeURIComponent(message);
-											const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-											window.open(whatsappURL, '_blank');
+                                                                               const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                                                                               window.open(whatsappURL, '_blank');
+                                                                               sendAnalyticsEvent('submit_form', 'contact', 'budget_form');
 										}}
 									>
 										Abrir WhatsApp
