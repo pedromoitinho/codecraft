@@ -14,8 +14,8 @@ function App() {
 	return (
 		<div className="app">
 			<SEO 
-				title="CodeCraft - Desenvolvimento Web Moderno"
-				description="Serviços profissionais de desenvolvimento web utilizando tecnologias de ponta. Criamos aplicativos web atraentes, responsivos e de alto desempenho."
+				title="CodeCraft - Criação de Sites Modernos"
+				description="Serviços profissionais de criação de sites utilizando tecnologias de ponta. Criamos aplicativos web atraentes, responsivos e de alto desempenho."
 				keywords={["web development", "react", "typescript", "frontend development", "responsive design"]}
 				url="https://codecraft.social"
 				type="website"
