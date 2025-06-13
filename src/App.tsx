@@ -16,7 +16,7 @@ function App() {
 			<SEO 
 				title="CodeCraft - Criação de Sites Modernos"
 				description="Serviços profissionais de criação de sites utilizando tecnologias de ponta. Criamos aplicativos web atraentes, responsivos e de alto desempenho."
-				keywords={["web development", "react", "typescript", "frontend development", "responsive design"]}
+				keywords={["criação de sites", "desenvolvimento web", "sites", "feira de santana", "codecraft", "codecraft fsa", "codecraft feira de santana", "web", "desenvolvimento web feira de santana", "sites feira de santana", "empresa de sites", "agência digital", "negócio online", "presença digital", "soluções web"]}
 				url="https://codecraft.social"
 				type="website"
 			/>
