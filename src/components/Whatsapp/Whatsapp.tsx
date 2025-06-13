@@ -1,12 +1,18 @@
 import './Whatsapp.css'
+import { sendAnalyticsEvent } from '../../utils/analytics'
 
 function Whatsapp(){
+    const handleClick = () => {
+        sendAnalyticsEvent('whatsapp_click', 'engagement', 'floating_button');
+    };
+
     return(
         <div className='whatsappLogo'>
-            <a 
-                target='_blank' 
+            <a
+                target='_blank'
                 href='https://api.whatsapp.com/send?phone=5575997079930&text=Oi%2C%20preciso%20de%20atendimento!'
                 rel="noopener noreferrer"
+                onClick={handleClick}
             >
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
