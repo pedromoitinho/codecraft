@@ -1,6 +1,7 @@
 import './Projects.css';
 import site_vitais from '../../assets/sitevitais.png';
 import site_moitinho from '../../assets/sitemoitinho.png';
+import ecommerce_img from '../../assets/Screenshot_20250614-110300.Chrome.png';
 
 interface Project {
 	id: number;
@@ -14,20 +15,29 @@ interface Project {
 
 const Projects: React.FC = () => {
 	const projects: Project[] = [
-		{
-			id: 1,
-			title: "Vitais Consultorias",
-			category: "Web Development",
-			image: site_vitais,
-			description: "Atividades de consultoria em gestão empresarial.",
-			technologies: ["React", "Node.js", "MySQL"],
-			link: "https://www.vitaisconsultoria.com/"
-		},
-		{
-			id: 3,
-			title: "Portifólio Pedro Moitinho",
-			category: "Web Development",
-			image: site_moitinho,
+                {
+                        id: 1,
+                        title: "Vitais Consultorias",
+                        category: "Web Development",
+                        image: site_vitais,
+                        description: "Atividades de consultoria em gestão empresarial.",
+                        technologies: ["React", "Node.js", "MySQL"],
+                        link: "https://www.vitaisconsultoria.com/"
+                },
+                {
+                        id: 2,
+                        title: "Ecommerce",
+                        category: "Web Development",
+                        image: ecommerce_img,
+                        description: "Loja virtual moderna.",
+                        technologies: ["React", "TypeScript"],
+                        link: "https://cleoproj.pages.dev/"
+                },
+                {
+                        id: 3,
+                        title: "Portifólio Pedro Moitinho",
+                        category: "Web Development",
+                        image: site_moitinho,
 			description: "Saiba mais sobre nosso Engenheiro de Software.", 
 			technologies: ["React", "Node.js", "MySQL"],
 			link: "https://pedromoitinho.works/"
