@@ -1,5 +1,5 @@
 .projects {
-	padding: 100px 0;
+	padding: 50px 0;
 	background-color: #fcfcfc;
 }
 
@@ -25,10 +25,11 @@
 
 .project-card {
 	background-color: #fff;
-	border-radius: 8px;
+	border-radius: 20px;
 	overflow: hidden;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 	transition: all 0.3s ease;
+	position: relative;
 }
 
 .project-card:hover {
@@ -37,10 +38,10 @@
 }
 
 .project-image {
-	height: 240px;
+	height: 200px;
 	background-size: cover;
-	background-position: center;
-	position: relative;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
 }
 
 .project-overlay {
@@ -55,16 +56,24 @@
 	align-items: center;
 	opacity: 0;
 	transition: opacity 0.3s ease;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 8px;
 }
 
-.project-card:hover .project-overlay {
+.project-card:hover .project-overlay,
+.project-overlay.force-show {
+	/* Added .force-show */
 	opacity: 1;
 }
 
 .project-details {
-	padding: 20px;
+	padding: 15px;
 	color: white;
 	text-align: center;
+	max-width: 100%;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 .project-details h3 {
@@ -74,6 +83,7 @@
 
 .project-details p {
 	font-size: 0.95rem;
+	color: white;
 	margin-bottom: 15px;
 }
 
@@ -119,7 +129,7 @@
 }
 
 .project-info p {
-	color: #666;
+	color: #333333b6;
 	font-size: 0.9rem;
 }
 
@@ -130,6 +140,19 @@
 
 	.projects-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.project-overlay {
+		opacity: 0;
+		/* Ensure overlay is hidden by default on mobile */
+		pointer-events: none;
+		/* Prevent interaction when hidden */
+	}
+
+	.project-overlay.force-show {
+		opacity: 1;
+		pointer-events: auto;
+		/* Allow interaction when shown */
 	}
 
 	.project-link {

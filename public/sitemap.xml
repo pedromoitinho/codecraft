@@ -6,4 +6,10 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+  <loc>https://codecraft.social/forms</loc>
+  <lastmod>2025-06-14</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+  </url>
 </urlset>

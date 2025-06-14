@@ -1,0 +1,695 @@
+/* Forms Page Styles */
+
+.forms-page {
+	min-height: 100vh;
+	background-color: var(--gray-50);
+	margin-top: 40px;
+	/* Updated */
+}
+
+
+
+.back-link {
+	color: var(--white);
+	/* Updated */
+	opacity: 0.9;
+	text-decoration: none;
+	font-size: var(--text-sm);
+	/* Updated */
+	margin-bottom: var(--space-4);
+	/* Updated */
+	display: inline-block;
+	transition: var(--transition);
+	/* Updated */
+	padding: var(--space-2) 0;
+}
+
+.back-link:hover {
+	opacity: 1;
+	/* Updated */
+	transform: translateX(-5px);
+}
+
+
+
+.page-subtitle {
+	font-size: var(--text-lg);
+	/* Updated */
+	opacity: 0.85;
+	/* Updated */
+	margin: 0;
+	color: var(--gray-200);
+	/* Lighter text on dark bg */
+}
+
+.forms-content {
+	padding: var(--space-10) 0 var(--space-12) 0;
+	/* Adjusted */
+	/* Increased bottom padding for nav */
+}
+
+.contact-form-container {
+	background-color: var(--white);
+	/* Updated */
+	border-radius: var(--radius-xl);
+	/* Updated */
+	padding: var(--space-8) var(--space-6);
+	/* Adjusted */
+	/* Updated */
+	box-shadow: var(--shadow-xl);
+	/* Updated */
+	max-width: 800px;
+	/* Slightly reduced for better focus */
+	min-height: auto;
+	/* Adjusted to allow shrinking */
+	/* Adjusted */
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	/* Added for centering form content */
+	flex-direction: column;
+	/* Added */
+}
+
+.step-title {
+	font-size: var(--text-2xl);
+	/* Updated */
+	color: var(--text-dark);
+	/* Updated */
+	margin-bottom: var(--space-6);
+	/* Adjusted */
+	/* Updated */
+	text-align: center;
+	font-weight: 600;
+}
+
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	/* Allows form to take available space */
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: var(--space-4);
+	/* Adjusted */
+	/* Updated */
+}
+
+.form-navigation {
+	position: absolute;
+	bottom: var(--space-8);
+	/* Updated */
+	left: var(--space-8);
+	/* Updated */
+	right: var(--space-8);
+	/* Updated */
+	display: flex;
+	justify-content: space-between;
+	gap: var(--space-4);
+	/* Updated */
+	align-items: center;
+	margin-top: var(--space-8);
+	/* Added margin for separation */
+}
+
+/* Base button style for form navigation */
+.form-navigation button,
+.form-navigation .submit-btn {
+	/* Removed 'all: unset;' to better integrate with potential global styles or ensure all properties are explicitly set */
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primary);
+	/* Updated */
+	color: var(--white);
+	/* Updated */
+	border: none;
+	padding: var(--space-3) var(--space-5);
+	/* Updated */
+	border-radius: var(--radius-lg);
+	/* Updated */
+	font-size: var(--text-base);
+	/* Updated */
+	font-weight: 600;
+	cursor: pointer;
+	transition: var(--transition);
+	/* Updated */
+	min-width: 130px;
+	/* Adjusted */
+	height: 48px;
+	/* Adjusted */
+	text-align: center;
+	flex-shrink: 0;
+}
+
+/* Specific style for the submit button */
+.form-navigation .submit-btn {
+	/* More specific selector */
+	background-color: var(--success, #27ae60);
+	/* Using a CSS var, fallback if not defined */
+	font-size: var(--text-lg);
+	/* Updated */
+}
+
+/* Hover state */
+.form-navigation button:hover:not(:disabled) {
+	background-color: var(--primary-dark);
+	/* Updated */
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+	/* Updated */
+}
+
+.form-navigation .submit-btn:hover:not(:disabled) {
+	background-color: var(--success-dark, #229954);
+	/* Using a CSS var, fallback */
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+	/* Updated */
+}
+
+/* Disabled state */
+.form-navigation button:disabled,
+.form-navigation .submit-btn:disabled {
+	background-color: var(--gray-300);
+	/* Updated */
+	color: var(--gray-500);
+	/* Updated */
+	cursor: not-allowed;
+	transform: none;
+	box-shadow: none;
+}
+
+.form-steps-content {
+	/* Wrapper for the actual step content */
+	flex-grow: 1;
+	overflow-y: auto;
+	/* If content per step is long */
+	padding-bottom: 70px;
+	/* Adjusted - Space for fixed navigation buttons */
+}
+
+
+.form-steps {
+	display: flex;
+	justify-content: center;
+	margin-bottom: var(--space-8);
+	/* Updated */
+	margin-top: var(--space-2);
+	/* Updated */
+}
+
+.form-group label {
+	margin-bottom: var(--space-2);
+	/* Updated */
+	font-weight: 600;
+	color: var(--text-dark);
+	/* Updated */
+	font-size: var(--text-base);
+	/* Updated */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+	padding: var(--space-2) var(--space-3);
+	/* Adjusted */
+	/* Updated */
+	border: 1px solid var(--gray-300);
+	/* Updated */
+	border-radius: var(--radius);
+	/* Updated */
+	font-size: var(--text-base);
+	/* Updated */
+	background-color: var(--gray-50);
+	/* Updated */
+	transition: var(--transition);
+	/* Updated */
+	font-family: var(--font-body);
+	/* Updated */
+	color: var(--text-dark);
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+	border-color: var(--primary);
+	/* Updated */
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 37, 99, 235), 0.2);
+	/* Assuming --primary-rgb is defined or use a light primary */
+	background-color: var(--white);
+	/* Updated */
+}
+
+.contact-form textarea {
+	resize: vertical;
+	min-height: 80px;
+	/* Adjusted */
+	line-height: 1.5;
+	/* Adjusted */
+	/* Updated */
+}
+
+.error-message {
+	color: var(--danger, #e74c3c);
+	/* Updated */
+	font-size: var(--text-sm);
+	/* Updated */
+	margin-top: var(--space-3);
+	/* Updated */
+	text-align: center;
+	padding: var(--space-3);
+	/* Updated */
+	background-color: var(--danger-light, #fadbd8);
+	/* Updated */
+	border-radius: var(--radius);
+	/* Updated */
+	border-left: 4px solid var(--danger, #e74c3c);
+	/* Updated */
+}
+
+.success-message {
+	text-align: center;
+	padding: var(--space-8);
+	/* Updated */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+	/* Takes full height of container */
+}
+
+.success-message h3 {
+	color: var(--success, #27ae60);
+	/* Updated */
+	font-size: var(--text-3xl);
+	/* Updated */
+	margin-bottom: var(--space-4);
+	/* Updated */
+	font-weight: 700;
+}
+
+.success-message p {
+	font-size: var(--text-lg);
+	/* Updated */
+	color: var(--text-light);
+	/* Updated */
+	margin-bottom: var(--space-6);
+	/* Updated */
+	line-height: 1.7;
+	/* Updated */
+	max-width: 500px;
+	/* Limit width for readability */
+}
+
+.success-buttons {
+	display: flex;
+	gap: var(--space-4);
+	/* Updated */
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: var(--space-4);
+}
+
+/* Re-style .btn-whatsapp and .btn-primary to match form navigation button style for consistency */
+.btn-whatsapp,
+.btn-primary {
+	/* This targets buttons in success message */
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	padding: var(--space-3) var(--space-5);
+	border-radius: var(--radius-lg);
+	font-size: var(--text-base);
+	font-weight: 600;
+	cursor: pointer;
+	transition: var(--transition);
+	min-width: 180px;
+	/* Adjusted */
+	height: 48px;
+	text-align: center;
+}
+
+.btn-whatsapp {
+	background-color: #25D366;
+	/* WhatsApp brand color */
+	color: var(--white);
+}
+
+.btn-whatsapp:hover {
+	background-color: #1DAF54;
+	/* Darker WhatsApp green */
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+}
+
+.btn-primary {
+	/* For "Send Another Message" */
+	background-color: var(--primary);
+	color: var(--white);
+}
+
+.btn-primary:hover {
+	background-color: var(--primary-dark);
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+}
+
+
+/* Form step indicator */
+.step-indicator {
+	width: 36px;
+	/* Slightly smaller */
+	height: 36px;
+	/* Slightly smaller */
+	border-radius: var(--radius-full);
+	/* Updated */
+	background-color: var(--gray-200);
+	/* Updated */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 var(--space-3);
+	/* Updated */
+	color: var(--gray-600);
+	/* Updated */
+	font-weight: 600;
+	/* Bolder */
+	font-size: var(--text-base);
+	/* Updated */
+	transition: var(--transition);
+	/* Updated */
+	position: relative;
+	border: 2px solid transparent;
+	/* For active state */
+}
+
+.step-indicator.active {
+	background-color: var(--primary);
+	/* Updated */
+	color: var(--white);
+	/* Updated */
+	transform: scale(1.1);
+	box-shadow: var(--shadow-lg);
+	/* Updated */
+	border-color: var(--primary-light);
+}
+
+/* Connecting lines for step indicator */
+.step-indicator:not(:last-child)::after {
+	content: '';
+	position: absolute;
+	left: calc(100% + var(--space-1));
+	/* Position after the circle */
+	top: 50%;
+	transform: translateY(-50%);
+	width: var(--space-4);
+	/* Length of the line */
+	height: 2px;
+	background-color: var(--gray-300);
+	/* Updated */
+	z-index: -1;
+}
+
+.step-indicator.active+.step-indicator::after,
+/* Line after an active step */
+.step-indicator.active::after {
+	/* Line of an active step itself */
+	background-color: var(--primary);
+}
+
+
+/* Radio buttons and checkboxes styling */
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+	margin-right: var(--space-2);
+	/* Updated */
+	transform: scale(1.1);
+	/* Slightly smaller */
+	accent-color: var(--primary);
+	/* Modern way to color native controls */
+	cursor: pointer;
+}
+
+.form-group>div {
+	/* Container for radio/checkbox options */
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	/* Adjusted */
+	/* Updated */
+	margin-top: var(--space-2);
+	/* Updated */
+}
+
+.form-group>div>label {
+	/* Individual radio/checkbox label */
+	display: flex;
+	align-items: center;
+	font-weight: normal;
+	/* Normal weight for options */
+	color: var(--text-light);
+	/* Updated */
+	margin-bottom: 0;
+	padding: var(--space-2) var(--space-3);
+	/* Adjusted */
+	/* Updated */
+	border-radius: var(--radius);
+	/* Updated */
+	border: 1px solid var(--gray-200);
+	/* Subtle border */
+	transition: var(--transition);
+	/* Updated */
+	cursor: pointer;
+	background-color: var(--gray-50);
+}
+
+.form-group>div>label:hover {
+	background-color: var(--gray-100);
+	/* Updated */
+	border-color: var(--gray-300);
+}
+
+/* Style for checked radio/checkbox label container */
+.form-group>div>label:has(input:checked) {
+	background-color: var(--primary-light-alpha-10, rgba(59, 130, 246, 0.05));
+	/* Light primary bg */
+	border-color: var(--primary);
+	/* Updated */
+	color: var(--primary-dark);
+	/* Darker text for contrast */
+	font-weight: 500;
+	/* Slightly bolder when selected */
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+
+	.contact-form-container {
+		margin: 0 var(--space-4);
+		/* Updated */
+		padding: var(--space-8) var(--space-6);
+		/* Updated */
+	}
+
+	.form-navigation {
+		bottom: var(--space-6);
+		/* Updated */
+		left: var(--space-6);
+		/* Updated */
+		right: var(--space-6);
+		/* Updated */
+	}
+}
+
+@media (max-width: 768px) {
+
+	.page-subtitle {
+		font-size: var(--text-base);
+		/* Updated */
+	}
+
+	.contact-form-container {
+		margin: 0 var(--space-3);
+		/* Updated */
+		padding: var(--space-6) var(--space-4);
+		/* Updated */
+		min-height: auto;
+		/* Allow shrinking */
+	}
+
+	.step-title {
+		font-size: var(--text-xl);
+		/* Updated */
+		margin-bottom: var(--space-6);
+		/* Updated */
+	}
+
+	.form-steps {
+		margin-bottom: var(--space-6);
+		/* Updated */
+	}
+
+	.step-indicator {
+		width: 32px;
+		/* Adjusted */
+		height: 32px;
+		/* Adjusted */
+		margin: 0 var(--space-2);
+		/* Updated */
+		font-size: var(--text-sm);
+		/* Updated */
+	}
+
+	.step-indicator:not(:last-child)::after {
+		left: calc(100% + 4px);
+		width: var(--space-3);
+	}
+
+	.form-group label {
+		font-size: var(--text-sm);
+		/* Updated */
+	}
+
+	.contact-form input[type="text"],
+	.contact-form input[type="email"],
+	.contact-form input[type="tel"],
+	.contact-form select,
+	.contact-form textarea {
+		padding: var(--space-2) var(--space-3);
+		font-size: var(--text-sm);
+	}
+
+
+	.form-navigation {
+		position: relative;
+		/* Change to relative for smaller screens */
+		bottom: auto;
+		left: auto;
+		right: auto;
+		margin-top: var(--space-6);
+		padding: 0 var(--space-4) var(--space-4) var(--space-4);
+		/* Add padding if needed */
+		gap: var(--space-3);
+		/* Updated */
+		flex-direction: column;
+		/* Stack buttons */
+	}
+
+	.form-steps-content {
+		padding-bottom: var(--space-4);
+		/* Less padding when nav is not fixed */
+	}
+
+	.form-navigation button,
+	.form-navigation .submit-btn {
+		min-width: 100%;
+		/* Full width */
+		height: 44px;
+		/* Adjusted */
+		font-size: var(--text-sm);
+		/* Updated */
+	}
+}
+
+@media (max-width: 480px) {
+	.contact-form-container {
+		margin: 0 var(--space-2);
+		/* Updated */
+		padding: var(--space-4) var(--space-3);
+		/* Updated */
+		border-radius: var(--radius-lg);
+	}
+
+	.forms-content {
+		padding: var(--space-6) 0;
+	}
+
+	.step-indicator {
+		width: 28px;
+		height: 28px;
+		margin: 0 var(--space-1);
+		font-size: var(--text-xs);
+	}
+
+	.step-indicator:not(:last-child)::after {
+		left: calc(100% + 3px);
+		width: var(--space-2);
+	}
+
+	.step-title {
+		font-size: var(--text-lg);
+		/* Updated */
+		margin-bottom: var(--space-4);
+	}
+
+	.form-steps {
+		margin-bottom: var(--space-4);
+	}
+
+	.form-navigation {
+		gap: var(--space-2);
+		/* Updated */
+		padding: 0 var(--space-3) var(--space-3) var(--space-3);
+	}
+
+	.form-navigation button,
+	.form-navigation .submit-btn {
+		height: 40px;
+		/* Adjusted */
+		font-size: var(--text-xs);
+		/* Updated */
+	}
+
+	.success-buttons {
+		flex-direction: column;
+		align-items: stretch;
+		/* Make buttons full width */
+		width: 100%;
+	}
+
+	.btn-whatsapp,
+	.btn-primary {
+		/* In success message */
+		width: 100%;
+		min-width: auto;
+		font-size: var(--text-sm);
+	}
+
+	.success-message h3 {
+		font-size: var(--text-2xl);
+	}
+
+	.success-message p {
+		font-size: var(--text-base);
+	}
+
+	.forms-page {
+		min-height: 60vh;
+	}
+}
+
+/* Define fallback CSS variables if not present globally, or ensure they are in index.css */
+:root {
+	--success: #27ae60;
+	--success-dark: #229954;
+	--danger: #e74c3c;
+	--danger-light: #fadbd8;
+	/* Example for --primary-rgb, replace with actual values from your --primary hex */
+	/* If --primary is #2563eb -> R:37, G:99, B:235 */
+	--primary-rgb: 37, 99, 235;
+	--primary-light-alpha-10: rgba(var(--primary-rgb), 0.1);
+}

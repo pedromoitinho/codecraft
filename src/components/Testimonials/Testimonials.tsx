@@ -1,6 +1,6 @@
-import './Testimonials.css';
 import { useState } from 'react';
 import janaina_foto from '../../assets/janaina.jpg';
+import './Testimonials.css';
 
 interface Testimonial {
 	id: number;

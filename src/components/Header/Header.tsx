@@ -1,13 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import CustomLink from '../CustomLink/CustomLink';
 import './Header.css';
-import LogoCode from "/src/assets/LogoCode.png"
+import LogoCode from "/src/assets/LogoCode.png";
 
 const Header: React.FC = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 	const [isScrolled, setIsScrolled] = useState<boolean>(false);
+	const location = useLocation();
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
+	};
+
+	const scrollToSection = (sectionId: string) => {
+		if (location.pathname !== '/') {
+			// If not on home page, navigate to home first, then scroll
+			window.location.href = `/#${sectionId}`;
+		} else {
+			// If on home page, just scroll to section
+			const element = document.getElementById(sectionId);
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth' });
+			}
+		}
+		setIsMenuOpen(false);
 	};
 
 	useEffect(() => {
@@ -29,18 +46,33 @@ const Header: React.FC = () => {
 		<header className={`header ${isScrolled ? 'scrolled' : ''}`}>
 			<div className="container">
 				<div className="logo">
-					<a href="#home">
-						<img className="logoImg" src={LogoCode} />
-					</a>
+					<CustomLink to="/">
+						<img className="logoImg" src={LogoCode} alt="CodeCraft Logo" />
+					</CustomLink>
 				</div>
 
 				<nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
 					<ul className="nav-list">
-						<li className="nav-item"><a href="#about" onClick={() => setIsMenuOpen(false)}>Sobre</a></li>
-						<li className="nav-item"><a href="#services" onClick={() => setIsMenuOpen(false)}>Serviços</a></li>
-						<li className="nav-item"><a href="#projects" onClick={() => setIsMenuOpen(false)}>Projetos</a></li>
-						<li className="nav-item"><a href="#testimonials" onClick={() => setIsMenuOpen(false)}>Depoimentos</a></li>
-						<li className="nav-item"><a href="#contact" onClick={() => setIsMenuOpen(false)}>Orçamento</a></li>
+							<li className="nav-item">
+							<button onClick={() => scrollToSection('services')} className="nav-link">
+								Serviços
+							</button>
+						</li>
+							<li className="nav-item">
+							<button onClick={() => scrollToSection('projects')} className="nav-link">
+								Projetos
+							</button>
+						</li>
+						<li className="nav-item">
+							<button onClick={() => scrollToSection('about')} className="nav-link">
+								Sobre
+							</button>
+						</li>
+						<li className="nav-item">
+							<CustomLink to="/forms" className="nav-link nav-link-cta" onClick={() => setIsMenuOpen(false)}>
+								Solicitar Orçamento
+							</CustomLink>
+						</li>
 					</ul>
 				</nav>
 

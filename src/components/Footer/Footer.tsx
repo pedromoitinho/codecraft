@@ -1,5 +1,5 @@
-import './Footer.css';
 import instagram_logo from '../../assets/instagram_logo.png';
+import './Footer.css';
 
 const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
@@ -13,15 +13,6 @@ const Footer: React.FC = () => {
 					</div>
 
 					<div className="footer-links">
-						<div className="footer-column">
-							<h4>Empresa</h4>
-							<ul>
-								<li><a href="#about">Sobre Nós</a></li>
-								<li><a href="#services">Serviços</a></li>
-								<li><a href="#projects">Projetos</a></li>
-								<li><a href="#testimonials">Depoimentos</a></li>
-							</ul>
-						</div>
 
 						<div className="footer-column">
 							<h4>Serviços</h4>
@@ -36,8 +27,8 @@ const Footer: React.FC = () => {
 							<h4>Contato</h4>
 							<ul>
 								<li>codecraftfsa@gmail.com</li>
-								<li>(75) 9842-3212</li>
-								<li>R. Boa Vista do Paraíso, 20 - Lagoa Salgada, Feira de Santana - BA, 44082-040</li>
+								<li>(75) 99707-9930</li>
+								<li>Artemia Pires, 10151 - Sim, Feira de Santana - BA, 44085-370</li>
 							</ul>
 						</div>
 					</div>

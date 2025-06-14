@@ -1,3 +1,4 @@
+import CustomLink from '../CustomLink/CustomLink';
 import './Hero.css';
 
 const Hero: React.FC = () => {
@@ -6,11 +7,11 @@ const Hero: React.FC = () => {
 			<div className="overlay"></div>
 			<div className="container">
 				<div className="hero-content">
-					<h1>Transformando Ideias em <span className="highlight">Experiências Digitais</span></h1>
-					<p>Somos especialistas em desenvolvimento web e mobile para empresas que buscam destacar-se no mercado digital.</p>
+					<h1>Multiplique Suas Vendas com <span className="highlight">Tecnologia de Ponta</span></h1>
+					<p>Desenvolvemos sites que geram resultados imensuráveis. Aumente sua receita com nossos sistemas personalizados.</p>
 					<div className="hero-cta">
-						<a href="#contact" className="btn btn-primary">Solicitar Orçamento</a>
-						<a href="#services" className="btn btn-secondary">Nossos Serviços</a>
+						<CustomLink to="/forms" className="btn btn-primary">🚀 Quero Crescer!</CustomLink>
+						<a href="#services" className="btn btn-secondary">Ver Como Funciona</a>
 					</div>
 				</div>
 			</div>

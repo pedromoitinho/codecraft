@@ -1,5 +1,8 @@
 /* Global styles for the CodeCraft website */
 
+/* Import scroll animations */
+@import url('./styles/scrollAnimations.css');
+
 :root {
 	/* Enhanced Color Palette */
 	--primary: #2563eb;
@@ -336,7 +339,7 @@ section {
 
 /* Make main content start below fixed header */
 main {
-	margin-top: 80px;
+	margin-top: 45px;
 }
 
 /* Enhanced Media Queries */

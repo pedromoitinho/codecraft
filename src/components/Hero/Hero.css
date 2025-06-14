@@ -1,13 +1,12 @@
 .hero {
 	position: relative;
-	height: calc(100vh - 75px);
-	min-height: 600px;
+	min-height: calc(100svh - 40px);
 	display: flex;
 	align-items: center;
 	background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
 	color: white;
 	overflow: hidden;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	border-bottom: 1px solid rgba(9, 14, 26, 0.05);
 }
 
 .hero::after {
@@ -19,7 +18,7 @@
 	bottom: 0;
 	background-image: url('/src/assets/heroPic.jpg');
 	background-size: cover;
-	background-position: center;
+	background-position: 0% 25%;
 	opacity: 0.85;
 	z-index: 0;
 	mix-blend-mode: overlay;
@@ -67,7 +66,7 @@
 }
 
 .hero h1 {
-	font-size: clamp(2.5rem, 5vw, 4rem);
+	font-size: clamp(2.5rem, 5vw, 2rem);
 	font-weight: 800;
 	margin-bottom: var(--space-6);
 	line-height: 1.1;
@@ -83,7 +82,7 @@
 }
 
 .hero p {
-	font-size: clamp(1.1rem, 2vw, 1.25rem);
+	font-size: clamp(1.1rem, 2vw, 1rem);
 	margin-bottom: var(--space-10);
 	line-height: 1.6;
 	color: rgba(255, 255, 255, 0.9);
@@ -156,7 +155,7 @@
 	border: 2px solid rgba(255, 255, 255, 0.8);
 	border-radius: var(--radius-2xl);
 	position: relative;
-	margin: 0 auto var(--space-3);
+	margin: 0;
 	background: rgba(255, 255, 255, 0.05);
 	backdrop-filter: blur(10px);
 }

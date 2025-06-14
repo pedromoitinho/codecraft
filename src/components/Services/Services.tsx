@@ -1,3 +1,5 @@
+import CustomLink from '../CustomLink/CustomLink';
+import { ScrollAnimate } from '../ScrollAnimate/ScrollAnimate';
 import './Services.css';
 
 interface ServiceProps {
@@ -13,7 +15,7 @@ const ServiceCard: React.FC<ServiceProps> = ({ title, description, icon }) => {
 			<h3>{title}</h3>
 			<p>{description}</p>
 			<div className="service-hover">
-				<a href="#contact" className="btn-service">Solicitar Orçamento</a>
+				<CustomLink to="/forms" className="btn-service">Solicitar Orçamento</CustomLink>
 			</div>
 		</div>
 	);
@@ -22,7 +24,7 @@ const ServiceCard: React.FC<ServiceProps> = ({ title, description, icon }) => {
 const Services: React.FC = () => {
 	const services = [
 		{
-			title: "Desenvolvimento Web",
+			title: "Criação de Sites",
 			description: "Sites institucionais, e-commerces e aplicações web responsivas com foco em experiência do usuário.",
 			icon: "🌐"
 		},
@@ -32,7 +34,7 @@ const Services: React.FC = () => {
 			icon: "💼"
 		},
 		{
-			title: "Resolução de Bugs",
+			title: "Resolução de Problemas",
 			description: "Seu projeto já existente, tem problemas sem solução? Nós resolvemos!",
 			icon: "✅"
 		}
@@ -48,12 +50,18 @@ const Services: React.FC = () => {
 
 				<div className="services-grid">
 					{services.map((service, index) => (
-						<ServiceCard
+						<ScrollAnimate 
 							key={index}
-							title={service.title}
-							description={service.description}
-							icon={service.icon}
-						/>
+							animation="slide-up"
+							delay={index * 150}
+							threshold={0.2}
+						>
+							<ServiceCard
+								title={service.title}
+								description={service.description}
+								icon={service.icon}
+							/>
+						</ScrollAnimate>
 					))}
 				</div>
 			</div>

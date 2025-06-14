@@ -1,7 +1,9 @@
-import './Projects.css';
-import site_vitais from '../../assets/sitevitais.png';
+import { useState } from 'react';
+import ecommerce_img from '../../assets/image.png';
 import site_moitinho from '../../assets/sitemoitinho.png';
-import ecommerce_img from '../../assets/Screenshot_20250614-110300.Chrome.png';
+import site_vitais from '../../assets/sitevitais.png';
+import { ScrollAnimate } from '../ScrollAnimate/ScrollAnimate';
+import './Projects.css';
 
 interface Project {
 	id: number;
@@ -14,35 +16,41 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
+	const [activeProjectId, setActiveProjectId] = useState<number | null>(null);
+
 	const projects: Project[] = [
                 {
                         id: 1,
                         title: "Vitais Consultorias",
-                        category: "Web Development",
+                        category: "Desenvolvimento Web",
                         image: site_vitais,
-                        description: "Atividades de consultoria em gestão empresarial.",
-                        technologies: ["React", "Node.js", "MySQL"],
+                        description: "Atividades de Consultoria em Gestão Empresarial.",
+                        technologies: ["React", "Spring", "Postgres", "Docker", "Typescript"],
                         link: "https://www.vitaisconsultoria.com/"
                 },
                 {
                         id: 2,
-                        title: "Ecommerce",
-                        category: "Web Development",
+                        title: "E-Commerce",
+                        category: "Desenvolvimento Web",
                         image: ecommerce_img,
-                        description: "Loja virtual moderna.",
+                        description: "Loja Virtual Moderna.",
                         technologies: ["React", "TypeScript"],
                         link: "https://cleoproj.pages.dev/"
                 },
                 {
                         id: 3,
                         title: "Portifólio Pedro Moitinho",
-                        category: "Web Development",
+                        category: "Desenvolvimento Web",
                         image: site_moitinho,
-			description: "Saiba mais sobre nosso Engenheiro de Software.", 
-			technologies: ["React", "Node.js", "MySQL"],
+			description: "Saiba Mais Sobre o Nosso Engenheiro de Software.", 
+			technologies: ["React", "Typescript"],
 			link: "https://pedromoitinho.works/"
 		}
 	];
+
+	const handleProjectCardClick = (projectId: number) => {
+		setActiveProjectId(currentActiveId => (currentActiveId === projectId ? null : projectId));
+	};
 
 	return (
 		<section id="projects" className="projects">
@@ -53,33 +61,43 @@ const Projects: React.FC = () => {
 				</div>
 
 				<div className="projects-grid">
-					{projects.map(project => (
-						<div key={project.id} className="project-card">
-							<div className="project-image" style={{ backgroundImage: `url(${project.image})` }}>
-								<div className="project-overlay">
-									<div className="project-details">
-										<h3>{project.title}</h3>
-										<p>{project.description}</p>
-										<div className="project-techs">
-											{project.technologies.map((tech, index) => (
-												<span key={index} className="tech-tag">{tech}</span>
-											))}
+					{projects.map((project, index) => (
+						<ScrollAnimate 
+							key={project.id}
+							animation="scale-in"
+							delay={index * 200}
+							threshold={0.2}
+						>
+							<div
+								className="project-card"
+								onClick={() => handleProjectCardClick(project.id)}
+							>
+								<div className="project-image" style={{ backgroundImage: `url(${project.image})` }}>
+									<div className={`project-overlay ${activeProjectId === project.id ? 'force-show' : ''}`}>
+										<div className="project-details">
+											<h3>{project.title}</h3>
+											<p>{project.description}</p>
+											<div className="project-techs">
+												{project.technologies.map((tech, index) => (
+													<span key={index} className="tech-tag">{tech}</span>
+												))}
+											</div>
+											{project.link ? (
+												<a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+													Visitar Projeto
+												</a>
+											) : (
+												<a href="#contact" className="project-link">Ver mais detalhes</a>
+											)}
 										</div>
-										{project.link ? (
-											<a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
-												Visitar Projeto
-											</a>
-										) : (
-											<a href="#contact" className="project-link">Ver mais detalhes</a>
-										)}
 									</div>
 								</div>
+								<div className="project-info">
+									<h4>{project.title}</h4>
+									<p>{project.category}</p>
+								</div>
 							</div>
-							<div className="project-info">
-								<h4>{project.title}</h4>
-								<p>{project.category}</p>
-							</div>
-						</div>
+						</ScrollAnimate>
 					))}
 				</div>
 			</div>
