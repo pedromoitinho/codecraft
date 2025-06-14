@@ -28,3 +28,27 @@ export const sendGoogleAdsConversion = (): void => {
     }
   }
 };
+
+export const gtagReportConversion = (url?: string): boolean => {
+  if (typeof window !== 'undefined') {
+    const gtag = (window as { gtag?: (...args: unknown[]) => void }).gtag;
+
+    const callback = (): void => {
+      if (typeof url !== 'undefined') {
+        window.location.href = url;
+      }
+    };
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17180147170/0s81CLyAuNoaEOL7kIBA',
+        value: 1.0,
+        currency: 'BRL',
+        event_callback: callback,
+      });
+      return false;
+    }
+  }
+
+  return false;
+};
