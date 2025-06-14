@@ -1,10 +1,15 @@
 import './Whatsapp.css'
-import { sendAnalyticsEvent, sendGoogleAdsConversion } from '../../utils/analytics'
+import { sendAnalyticsEvent } from '../../utils/analytics'
 
 function Whatsapp(){
     const handleClick = () => {
         sendAnalyticsEvent('whatsapp_click', 'engagement', 'floating_button');
-        sendGoogleAdsConversion();
+        if (typeof window !== 'undefined') {
+            const report = (window as { gtag_report_conversion?: (url?: string) => void }).gtag_report_conversion;
+            if (typeof report === 'function') {
+                report();
+            }
+        }
     };
 
     return(

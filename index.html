@@ -23,6 +23,22 @@
                 gtag('config', 'G-2F727BZKY5');
                 gtag('config', 'AW-17180147170');
         </script>
+        <script>
+                function gtag_report_conversion(url) {
+                        var callback = function () {
+                                if (typeof url !== 'undefined') {
+                                        window.location = url;
+                                }
+                        };
+                        gtag('event', 'conversion', {
+                                send_to: 'AW-17180147170/AxgpCN7rvtoaEOL7kIBA',
+                                value: 1.0,
+                                currency: 'BRL',
+                                event_callback: callback
+                        });
+                        return false;
+                }
+        </script>
         <link rel="icon" href="./public/favicon.png" type="image/png">
         <link rel="apple-touch-icon" href="./public/logo192.png" />
         <link rel="manifest" href="./public/manifest.json" />
