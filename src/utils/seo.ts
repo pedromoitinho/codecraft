@@ -15,7 +15,7 @@ export const SEO_CONFIG = {
     'codecraft',
     'codecraft fsa',
     'codecraft feira de santana',
-	 'criação de sites feira de santana'
+    'criação de sites feira de santana'
   ],
   
   secondaryKeywords: [
